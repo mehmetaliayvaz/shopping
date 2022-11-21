@@ -27,8 +27,13 @@ function ProductDetailPage() {
                   LG 55UP77006 55" 139 Ekran Uydu Alıcılı 4K Ultra HD Smart LED TV
                 </h1>
               </div>
-              <div className="mb-8">
-                <span className="font-semibold text-3xl">14890 TL</span>
+              <div className="mb-8 flex items-center">
+                <span className="font-semibold text-3xl mr-10">14890 TL</span>
+                <div className="text-sm flex shadow-md">
+                  <button className="bg-gray-300 w-6 h-6 flex justify-center items-center">-</button>
+                  <div className="w-10 flex items-center justify-center">3</div>
+                  <button className="bg-gray-300 w-6 h-6 flex justify-center items-center">+</button>
+                </div>
               </div>
               <div className="mb-8">
                 <button className="btn-primary px-8 py-2">

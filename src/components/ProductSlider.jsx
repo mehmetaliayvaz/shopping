@@ -17,8 +17,6 @@ function ProductSlider() {
           spaceBetween={20}
           slidesPerView={4}
           navigation
-          onSlideChange={() => console.log('slide change')}
-          onSwiper={(swiper) => console.log(swiper)}
         >
           {
             productSlider.map((el, index) => (
