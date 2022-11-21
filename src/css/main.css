@@ -9,7 +9,7 @@ input, textarea {
 }
 
 .page-wrapper{
-  @apply my-[50px];
+  @apply py-[50px];
 }
 
 .intro-slider .swiper-button-next, .intro-slider .swiper-button-prev{

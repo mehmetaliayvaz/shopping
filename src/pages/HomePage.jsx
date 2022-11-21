@@ -4,9 +4,7 @@ import ProductCard from "../components/ProductCard";
 
 function HomePage() {
 
-  const productCards = Array.from({ length: 16 }).map(
-    (el, index) => `Slide ${index + 1}`
-  );
+  const productCards = Array.from({ length: 16 })
 
   return (
     <div className="page-wrapper">
