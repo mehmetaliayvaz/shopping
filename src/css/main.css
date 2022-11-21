@@ -11,3 +11,11 @@ input, textarea {
 .page-wrapper{
   @apply my-[50px];
 }
+
+.intro-slider .swiper-button-next, .intro-slider .swiper-button-prev{
+  @apply bg-white rounded-full h-11 w-11 shadow-xl mx-5;
+}
+
+.intro-slider .swiper-button-next:after, .intro-slider .swiper-button-prev:after{
+  @apply text-black text-lg font-bold;
+}

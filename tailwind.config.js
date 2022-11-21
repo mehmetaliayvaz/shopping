@@ -39,7 +39,7 @@ module.exports = {
         borderRadius: {
         },
         backgroundImage: {
-            "home-slider": "url('/img/home-slider.png')",
+            
         },
         fontSize: {
         },
@@ -47,6 +47,7 @@ module.exports = {
             "poppins": ['"Poppins"', "sans-serif"],
         },
         boxShadow: {
+            "sm": "0 4px 4px rgba(0, 0, 0, 0.25)",
             "md": "0 4px 10px rgba(0, 0, 0, 0.1)",
         }
     },
