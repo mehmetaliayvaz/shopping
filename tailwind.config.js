@@ -42,6 +42,7 @@ module.exports = {
             
         },
         fontSize: {
+            "3xl": "2rem",
         },
         fontFamily: {
             "poppins": ['"Poppins"', "sans-serif"],

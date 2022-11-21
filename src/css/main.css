@@ -19,3 +19,7 @@ input, textarea {
 .intro-slider .swiper-button-next:after, .intro-slider .swiper-button-prev:after{
   @apply text-black text-lg font-bold;
 }
+
+.btn-primary{
+  @apply bg-primary rounded-lg px-4 py-2 text-white text-sm font-semibold;
+}

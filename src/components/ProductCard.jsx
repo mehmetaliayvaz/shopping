@@ -21,7 +21,7 @@ function ProductCard() {
       </div>
       <div className="flex justify-between"> 
         <span className="font-semibold text-2xl">1200 TL</span>
-        <button className="bg-primary rounded-lg px-4 py-2 text-white text-sm">Sepete Ekle</button>
+        <button className="btn-primary">Sepete Ekle</button>
       </div>
     </div>
   )
