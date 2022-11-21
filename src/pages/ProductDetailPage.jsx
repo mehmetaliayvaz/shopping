@@ -1,4 +1,5 @@
 import ProductSlider from "../components/ProductSlider"
+import ProductCount from "../components/ProductCount"
 
 function ProductDetailPage() {
   const productSm = Array.from({ length: 4 })
@@ -29,11 +30,7 @@ function ProductDetailPage() {
               </div>
               <div className="mb-8 flex items-center">
                 <span className="font-semibold text-3xl mr-10">14890 TL</span>
-                <div className="text-sm flex shadow-md">
-                  <button className="bg-gray-300 w-6 h-6 flex justify-center items-center">-</button>
-                  <div className="w-10 flex items-center justify-center">3</div>
-                  <button className="bg-gray-300 w-6 h-6 flex justify-center items-center">+</button>
-                </div>
+                <ProductCount />
               </div>
               <div className="mb-8">
                 <button className="btn-primary px-8 py-2">

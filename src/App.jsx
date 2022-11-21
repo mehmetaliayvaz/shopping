@@ -1,5 +1,6 @@
 import TheHeader from "./components/TheHeader";
 import HomePage from "./pages/HomePage";
+import ShoppingCart from "./pages/ShoppingCartPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import { Routes, Route } from "react-router-dom";
 
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/product-detail" element={<ProductDetailPage />} />
+        <Route path="/shopping-cart" element={<ShoppingCart />} />
       </Routes>
     </div>
   );
