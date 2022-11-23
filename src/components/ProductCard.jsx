@@ -6,7 +6,7 @@ function ProductCard(props) {
     <div className="bg-white rounded shadow-md p-5 flex flex-col justify-between h-[400px]">
       <div>
         <img src={props.product.images[0] } className="w-full h-[150px] object-cover mb-5" alt="" />
-        <Link to="/product-detail">
+        <Link to={"/product/" + props.product.id}>
           <h3 className="text-sm mb-3">
             { props.product.title ?? 'Vestel Televizyon' }
           </h3>

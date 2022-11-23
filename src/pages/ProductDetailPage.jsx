@@ -1,8 +1,22 @@
-import ProductSlider from "../components/ProductSlider"
-import ProductCount from "../components/ProductCount"
+// import ProductSlider from "../components/ProductSlider";
+import ProductCount from "../components/ProductCount";
+import { useEffect, useState } from "react";
+import { useParams } from 'react-router-dom';
+import axios from "axios";
 
 function ProductDetailPage() {
   const productSm = Array.from({ length: 4 })
+
+  const [product, setProduct] = useState({});
+
+  const params = useParams();
+
+  useEffect(() => {
+    axios.get(`https://shopping-api-ten.vercel.app/products/${params.id}`)
+      .then((res) => {
+        setProduct(res.data);
+      });
+  }, [params.id]);
 
   return (
     <div className="page-wrapper">
@@ -25,7 +39,7 @@ function ProductDetailPage() {
             <div className="w-6/12 px-4">
               <div>
                 <h1 className="font-semibold text-xl mb-8">
-                  LG 55UP77006 55" 139 Ekran Uydu Alıcılı 4K Ultra HD Smart LED TV
+                  { product.title }
                 </h1>
               </div>
               <div className="mb-8 flex items-center">
@@ -39,10 +53,7 @@ function ProductDetailPage() {
               </div>
               <div>
                 <p className="text-sm">
-                  Televizyon üretiminde ve tasarımında öncü bir marka olan LG tarafından üretilen, bir televizyon olan LG 55UP77006LB 55" 
-                  139 Ekran Uydu Alıcılı 4K Ultra HD Smart LED TV birçok anlamda yenilik barındıran LG televizyon ile izLEDiğiniz içeriklerden 
-                  daha fazla keyif alabilirsiniz. Boyut ve teknik özellikler bakımından kullanıcısına birçok yenilik sunan LG televizyon ile en
-                  sevdiğiniz içerikleri kaliteli bir ekran aracılığı ile seyretme şansı bulabilirsiniz.
+                  { product.description }
                 </p>
               </div>
             </div>
@@ -50,7 +61,7 @@ function ProductDetailPage() {
         </div>
       </section>
 
-      <ProductSlider />
+      {/* <ProductSlider /> */}
 
     </div>
   )
