@@ -1,20 +1,23 @@
-function SidebarCategories() {
+function SidebarCategories(props) {
   const categories = [
     { title: 'Elektronik', slug: '/' },
     { title: 'Moda', slug: '/' },
-    { title: 'Kırtasiye', slug: '/' },
+    { title: 'Kırtasiye & Ofis', slug: '/' },
     { title: 'Oyuncak', slug: '/' },
     { title: 'Kozmetik', slug: '/' },
     { title: 'Hobi', slug: '/' },
     { title: 'Süpermarket', slug: '/' },
     { title: 'Spor', slug: '/' },
-    { title: 'Mobilya', slug: '/' },
-    { title: 'Züccaciye', slug: '/' },
+    { title: 'Ev & Mobilya', slug: '/' },
+    { title: 'Züccaciye & Mutfak', slug: '/' },
+    { title: 'Ayakkabı & Çanta', slug: '/' },
+    { title: 'Saat & Aksesuar', slug: '/' },
+    { title: 'Kitap', slug: '/' },
   ]
 
 
   return (
-    <div className="bg-white shadow-md rounded">
+    <div className={'bg-white shadow-md rounded ' + props.className}>
       <ul className="text-sm font-medium py-2">
         {categories.map((category, index) => (
           <li key={index} className="hover:bg-gray-100 transition-colors">

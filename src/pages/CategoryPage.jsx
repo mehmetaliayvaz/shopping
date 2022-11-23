@@ -1,20 +1,21 @@
 import SidebarCategories from "../components/SidebarCategories";
-import IntroSlider from "../components/IntroSlider";
 import ProductCard from "../components/ProductCard";
 import { useEffect, useState } from "react";
+import { useParams } from 'react-router-dom';
 import axios from "axios";
 
-function HomePage() {
+function CategoryPage() {
 
   const [products, setProducts] = useState([]);
 
+  const params = useParams();
+  
   useEffect(() => {
-    axios.get("https://shopping-api-ten.vercel.app/products")
+    axios.get(`https://shopping-api-ten.vercel.app/products/category/${params.id}`)
       .then((res) => {
         setProducts(res.data);
-        console.log(res.data);
       });
-  }, []);
+  }, [params]);
 
   return (
     <div className="page-wrapper">
@@ -24,9 +25,8 @@ function HomePage() {
             <SidebarCategories className="sticky top-20" />
           </div>
           <div className="md:w-10/12">
-            <IntroSlider className="mb-20" />
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
-              {
+              { 
                 products.map((productItem, productIndex) => {
                   return (
                     <ProductCard key={productIndex} product={productItem} />
@@ -41,4 +41,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default CategoryPage;

@@ -3,10 +3,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-function IntroSlider() {
+function IntroSlider(props) {
   return (
     <Swiper
-      className="intro-slider"
+      className={'intro-slider ' + props.className}
       modules={[Navigation]}
       spaceBetween={20}
       slidesPerView={1}
