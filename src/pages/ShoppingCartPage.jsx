@@ -1,9 +1,10 @@
 import ShoppingCartProduct from "../components/ShoppingCartProduct";
 import OrderDetail from "../components/OrderDetail";
-import ProductSlider from "../components/ProductSlider";
+// import ProductSlider from "../components/ProductSlider";
+import { useSelector } from "react-redux";
 
 function ShoppingCartPage() {
-  const products = Array.from({ length: 3 })
+  const shoppingCartItems = useSelector(state => state.shoppingCart.value);
 
   return (
     <div className="page-wrapper">
@@ -13,8 +14,8 @@ function ShoppingCartPage() {
           <div className="md:flex gap-8">
             <div className="md:w-7/12">
               {
-                products.map(() => (
-                  <ShoppingCartProduct />
+                shoppingCartItems.map((item, index) => (
+                  <ShoppingCartProduct key={index} product={item} />
                 ))
               }
             </div>
@@ -25,7 +26,7 @@ function ShoppingCartPage() {
         </div>
       </section>
 
-      <ProductSlider />
+      {/* <ProductSlider /> */}
 
     </div>
   )

@@ -1,7 +1,12 @@
 import StarIcon from "./icon/StarIcon";
 import { Link } from "react-router-dom";
+import { addToCart } from "../store/shoppingCart";
+import { useDispatch } from "react-redux";
 
 function ProductCard(props) {
+
+  const dispatch = useDispatch();
+
   return (
     <div className="bg-white rounded shadow-md p-5 flex flex-col justify-between h-[400px]">
       <div>
@@ -23,7 +28,7 @@ function ProductCard(props) {
       </div>
       <div className="flex justify-between"> 
         <span className="font-semibold text-xl">{ props.product.price } ₺</span>
-        <button className="btn-primary text-xs">Sepete Ekle</button>
+        <button className="btn-primary text-xs" onClick={ () => dispatch(addToCart(props.product)) }>Sepete Ekle</button>
       </div>
     </div>
   )

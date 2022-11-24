@@ -26,10 +26,10 @@ function Header() {
                 </a>
               </li>
               <li>
-                <a href="/" className="flex items-center">
+                <Link to="/shopping-cart" className="flex items-center">
                   <BasketIcon size="16" color="black" className="mr-1" />
                   <span>Sepetim</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
