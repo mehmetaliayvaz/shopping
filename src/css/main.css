@@ -21,5 +21,5 @@ input, textarea {
 }
 
 .btn-primary{
-  @apply bg-primary rounded-lg px-4 py-2 text-white text-sm font-semibold;
+  @apply bg-primary rounded-lg px-4 py-2 text-white text-sm font-semibold hover:bg-primary-700 transition-colors;
 }

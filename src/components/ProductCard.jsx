@@ -15,7 +15,7 @@ function ProductCard(props) {
         </Link>
         <Link to={"/product/" + props.product.id}>
           <h3 className="text-sm mb-3">
-            { props.product.title ?? 'Vestel Televizyon' }
+            { props.product.title }
           </h3>
         </Link>
         <div className="flex">
