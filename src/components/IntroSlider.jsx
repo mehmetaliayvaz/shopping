@@ -11,8 +11,6 @@ function IntroSlider(props) {
       spaceBetween={20}
       slidesPerView={1}
       navigation
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
     >
       <SwiperSlide>
         <div className='bg-home-slider w-full h-full'>

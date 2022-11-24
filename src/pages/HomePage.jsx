@@ -12,7 +12,6 @@ function HomePage() {
     axios.get("https://shopping-api-ten.vercel.app/products")
       .then((res) => {
         setProducts(res.data);
-        console.log(res.data);
       });
   }, []);
 
