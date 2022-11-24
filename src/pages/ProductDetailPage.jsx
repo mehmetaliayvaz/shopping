@@ -44,7 +44,7 @@ function ProductDetailPage() {
                 </h1>
               </div>
               <div className="mb-8 flex items-center">
-                <span className="font-semibold text-3xl mr-10">{ product.price } TL</span>
+                <span className="font-semibold text-3xl mr-10">{ product.price } ₺</span>
                 <ProductCount />
               </div>
               <div className="mb-8">
