@@ -20,7 +20,7 @@ function ProductCard(props) {
         </div>
       </div>
       <div className="flex justify-between"> 
-        <span className="font-semibold text-2xl">1200 TL</span>
+        <span className="font-semibold text-2xl">{ props.product.price } TL</span>
         <button className="btn-primary">Sepete Ekle</button>
       </div>
     </div>

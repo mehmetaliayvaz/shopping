@@ -5,9 +5,9 @@ import { useParams } from 'react-router-dom';
 import axios from "axios";
 
 function ProductDetailPage() {
-  const productSm = Array.from({ length: 4 })
 
   const [product, setProduct] = useState({});
+  const [activeImg, setActiveImg] = useState();
 
   const params = useParams();
 
@@ -15,6 +15,7 @@ function ProductDetailPage() {
     axios.get(`https://shopping-api-ten.vercel.app/products/${params.id}`)
       .then((res) => {
         setProduct(res.data);
+        setActiveImg(res.data.images[0]);
       });
   }, [params.id]);
 
@@ -26,15 +27,15 @@ function ProductDetailPage() {
           <div className="flex gap-8">
             <div className="w-1/12 space-y-4">
               {
-                productSm.map((el, index) => (
-                  <div className="bg-white aspect-square border border-gray-100 p-3">
-                    <img src="/img/product-detail.png" className="w-full h-full object-cover" alt="" />
-                  </div>
+                product.images?.map(image => (
+                  <button key={image} onClick={ () => setActiveImg(image) } className="bg-white aspect-square border border-gray-100 p-3">
+                    <img src={image} className="w-full h-full object-cover" alt="" />
+                  </button>
                 ))
               }
             </div>
             <div className="w-5/12 bg-white border border-gray-100 aspect-square p-10">
-            <img src="/img/product-detail.png" className="w-full h-full object-cover" alt="" />
+            <img src={ activeImg } className="w-full h-full object-cover" alt="" />
             </div>
             <div className="w-6/12 px-4">
               <div>
@@ -43,7 +44,7 @@ function ProductDetailPage() {
                 </h1>
               </div>
               <div className="mb-8 flex items-center">
-                <span className="font-semibold text-3xl mr-10">14890 TL</span>
+                <span className="font-semibold text-3xl mr-10">{ product.price } TL</span>
                 <ProductCount />
               </div>
               <div className="mb-8">
