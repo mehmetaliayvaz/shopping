@@ -1,9 +1,11 @@
-import SearchIcon from "./icon/SearchIcon";
 import UserIcon from "./icon/UserIcon";
 import BasketIcon from "./icon/BasketIcon";
 import { Link } from "react-router-dom";
+import HeaderSearch from "./HeaderSearch";
+
 
 function Header() {
+
   return (
     <header className="shadow-md">
       <div className="container">
@@ -13,10 +15,7 @@ function Header() {
               <h1 className="font-semibold text-[40px]">shopping</h1>
             </Link>
           </div>
-          <div className="bg-gray-100 rounded-lg w-5/12 flex justify-between p-3">
-            <input type="text" className="placeholder:text-gray-600 text-xs bg-transparent w-full" placeholder="Aradığınız ürünü yazınız" />
-            <SearchIcon size="20" color="black" />
-          </div>
+          <HeaderSearch />
           <div>
             <ul className="text-sm font-semibold flex space-x-8">
               <li>
