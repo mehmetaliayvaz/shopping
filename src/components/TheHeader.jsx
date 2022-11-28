@@ -19,10 +19,10 @@ function Header() {
           <div>
             <ul className="text-sm font-semibold flex space-x-8">
               <li>
-                <a href="/" className="flex items-center">
+                <Link to="/orders" className="flex items-center">
                   <UserIcon size="16" color="black" className="mr-1" />
                   <span>Siparişlerim</span>
-                </a>
+                </Link>
               </li>
               <li>
                 <Link to="/shopping-cart" className="flex items-center">

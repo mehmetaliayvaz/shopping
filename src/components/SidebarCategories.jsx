@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function SidebarCategories(props) {
   const categories = [
     { title: 'Elektronik', slug: '/category/elektronik' },
@@ -21,9 +23,9 @@ function SidebarCategories(props) {
       <ul className="text-sm font-medium py-2">
         {categories.map((category, index) => (
           <li key={index} className="hover:bg-gray-100 transition-colors">
-            <a href={category.slug} className="flex py-3 px-5">
+            <Link to={category.slug} className="flex py-3 px-5">
               {category.title}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

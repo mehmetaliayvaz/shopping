@@ -3,6 +3,7 @@ import HomePage from "./pages/HomePage";
 import ShoppingCart from "./pages/ShoppingCartPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import CategoryPage from "./pages/CategoryPage";
+import OrdersPage from "./pages/OrdersPage";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/product/:id" element={<ProductDetailPage />} />
         <Route path="/shopping-cart" element={<ShoppingCart />} />
         <Route path="/category/:id" element={<CategoryPage />} />
+        <Route path="/orders" element={<OrdersPage />} />
       </Routes>
     </div>
   );
