@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { addToCart } from "../store/shoppingCart";
+import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
 
 function ProductDetailPage() {
 
@@ -11,6 +14,12 @@ function ProductDetailPage() {
   const [activeImg, setActiveImg] = useState();
   const params = useParams();
   const products = useSelector(state => state.products.value);
+  const dispatch = useDispatch();
+
+  const addToCartAction = () => {
+    dispatch(addToCart(product))
+    toast.success("Sepete eklendi")
+  }
 
   useEffect(() => {
     axios.get(`https://shopping-api-ten.vercel.app/products/${params.id}`)
@@ -49,7 +58,7 @@ function ProductDetailPage() {
                 <ProductCount />
               </div>
               <div className="mb-8">
-                <button className="btn-primary px-8 py-2">
+                <button className="btn-primary px-8 py-2" onClick={addToCartAction}>
                   Sepete Ekle
                 </button>
               </div>
