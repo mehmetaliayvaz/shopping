@@ -8,6 +8,7 @@ import { Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { setProducts } from "./store/products";
+import { setOrders } from "./store/orders";
 import { setShoppingCart } from "./store/shoppingCart";
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
@@ -23,6 +24,10 @@ function App() {
 
     if(localStorage.getItem("shoppingCart")){
       dispatch(setShoppingCart(JSON.parse(localStorage.getItem("shoppingCart"))));
+    }
+
+    if(localStorage.getItem("orders")){
+      dispatch(setOrders(JSON.parse(localStorage.getItem("orders"))));
     }
   }
 

@@ -2,10 +2,12 @@ import ShoppingCartProduct from "../components/ShoppingCartProduct";
 import OrderDetail from "../components/OrderDetail";
 import ProductSlider from "../components/ProductSlider";
 import { useSelector } from "react-redux";
+import { useState } from "react";
 
 function ShoppingCartPage() {
   const shoppingCartItems = useSelector(state => state.shoppingCart.value);
   const products = useSelector(state => state.products.value);
+  const [isOrder, setIsOrder] = useState(false);
 
   return (
     <div className="page-wrapper">
@@ -22,7 +24,7 @@ function ShoppingCartPage() {
                 }
               </div>
               <div className="md:w-5/12">
-                <OrderDetail />
+                <OrderDetail setIsOrder={setIsOrder} />
               </div>
             </div>
           </div>
@@ -31,7 +33,13 @@ function ShoppingCartPage() {
           <section className="mb-20">
             <div className="container">
               <div className="text-center">
-                <h1 className="font-semibold text-3xl py-20">Sepetinizde ürün bulunmamaktadır.</h1>
+                {
+                  isOrder ? (
+                    <h1 className="text-3xl bg-green-200 py-20">Siparişiniz başarıyla verilmiştir.</h1>
+                  ) : (
+                    <h1 className="font-semibold text-3xl py-20">Sepetinizde ürün bulunmamaktadır.</h1>
+                  )
+                }
               </div>
             </div>
           </section>

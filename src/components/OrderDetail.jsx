@@ -1,7 +1,19 @@
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { setOrder } from "../store/orders";
+import { removeCart } from "../store/shoppingCart";
 
-function OrderDetail() {
+
+function OrderDetail({ setIsOrder }) {
   const shoppingCartItems = useSelector(state => state.shoppingCart.value);
+  const dispatch = useDispatch();
+  
+
+  const orderProducts = () => {
+    dispatch(setOrder(shoppingCartItems));
+    dispatch(removeCart());
+    setIsOrder(true);
+  }
 
   return (
     <div className="bg-white p-6">
@@ -35,7 +47,7 @@ function OrderDetail() {
         </div>
       </div>
       <div>
-        <button className="btn-primary w-full py-3">Sipariş Ver</button>
+        <button className="btn-primary w-full py-3" onClick={ () => orderProducts() }>Sipariş Ver</button>
       </div>
     </div>
   )
