@@ -1,7 +1,11 @@
 import ProductCount from "./ProductCount";
 import CloseIcon from "./icon/CloseIcon";
+import { useDispatch } from "react-redux";
+import { removeFromCart } from "../store/shoppingCart";
 
 function ShoppingCartProduct({ product }) {
+  const dispatch = useDispatch();
+
   return (
     <div className="bg-white p-8 border-y border-gray-200 flex justify-between">
       <div className="flex">
@@ -13,11 +17,11 @@ function ShoppingCartProduct({ product }) {
             <h2 className="text-sm font-medium mb-4">{ product.title }</h2>
             <span className="text-xs font-medium">{ product.price } TL</span>
           </div>
-          <ProductCount />
+          <ProductCount quantity={product.quantity ?? 1} productId={product.id} />
         </div>
       </div>
       <div>
-        <button>
+        <button onClick={ () => dispatch(removeFromCart(product.id)) }>
           <CloseIcon size="17" />
         </button>
       </div>
