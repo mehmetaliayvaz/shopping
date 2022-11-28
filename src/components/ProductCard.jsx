@@ -2,10 +2,16 @@ import StarIcon from "./icon/StarIcon";
 import { Link } from "react-router-dom";
 import { addToCart } from "../store/shoppingCart";
 import { useDispatch } from "react-redux";
+import toast from "react-hot-toast";
 
 function ProductCard(props) {
 
   const dispatch = useDispatch();
+
+  const addToCartAction = () => {
+    dispatch(addToCart(props.product))
+    toast.success("Sepete eklendi")
+  }
 
   return (
     <div className="bg-white rounded shadow-md p-5 flex flex-col justify-between h-[450px]">
@@ -30,7 +36,7 @@ function ProductCard(props) {
       </div>
       <div className="flex justify-between"> 
         <span className="font-semibold text-xl">{ props.product.price } ₺</span>
-        <button className="btn-primary text-xs" onClick={ () => dispatch(addToCart(props.product)) }>Sepete Ekle</button>
+        <button className="btn-primary text-xs" onClick={addToCartAction}>Sepete Ekle</button>
       </div>
     </div>
   )

@@ -8,20 +8,31 @@ import { Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { setProducts } from "./store/products";
+import { setShoppingCart } from "./store/shoppingCart";
 import axios from "axios";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const dispatch = useDispatch();
-  useEffect(() => {
-    axios.get("https://shopping-api-ten.vercel.app/products")
+
+  const loadData = async () => {
+    await axios.get("https://shopping-api-ten.vercel.app/products")
       .then((res) => {
         dispatch(setProducts(res.data));
       });
-  }, [dispatch]);
 
+    if(localStorage.getItem("shoppingCart")){
+      dispatch(setShoppingCart(JSON.parse(localStorage.getItem("shoppingCart"))));
+    }
+  }
+
+  useEffect(() => {
+    loadData()
+  } , []);
 
   return (
     <div className="bg-gray-50">
+      <Toaster/>
       <TheHeader />
       <Routes>
         <Route path="/" element={<HomePage />} />

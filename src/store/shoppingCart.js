@@ -6,6 +6,9 @@ export const shoppingCartSlice = createSlice({
     value: [],
   },
   reducers: {
+    setShoppingCart: (state, action) => {
+      state.value = action.payload;
+    },
     addToCart: (state, action) => {
       if(state.value.find(item => item.id === action.payload.id)) {
         state.value = state.value.map(item => {
@@ -20,9 +23,11 @@ export const shoppingCartSlice = createSlice({
       } else {
         state.value.push({ ...action.payload, quantity: 1 });
       }
+      localStorage.setItem("shoppingCart", JSON.stringify(state.value));
     },
     removeFromCart: (state, action) => {
       state.value = state.value.filter(item => item.id !== action.payload);
+      localStorage.setItem("shoppingCart", JSON.stringify(state.value));
     },
     increaseQuantity: (state, action) => {
       state.value = state.value.map(item => {
@@ -33,7 +38,8 @@ export const shoppingCartSlice = createSlice({
           }
         }
         return item;
-      })
+      });
+      localStorage.setItem("shoppingCart", JSON.stringify(state.value));
     },
     decreaseQuantity: (state, action) => {
       state.value = state.value.map(item => {
@@ -45,10 +51,11 @@ export const shoppingCartSlice = createSlice({
         }
         return item;
       })
+      localStorage.setItem("shoppingCart", JSON.stringify(state.value));
     },
   }
 })
 
-export const { addToCart, removeFromCart, increaseQuantity, decreaseQuantity } = shoppingCartSlice.actions;
+export const { addToCart, removeFromCart, increaseQuantity, decreaseQuantity, setShoppingCart } = shoppingCartSlice.actions;
 
 export default shoppingCartSlice.reducer;
