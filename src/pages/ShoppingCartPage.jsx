@@ -10,22 +10,33 @@ function ShoppingCartPage() {
   return (
     <div className="page-wrapper">
 
-      <section className="mb-20">
-        <div className="container">
-          <div className="md:flex gap-8">
-            <div className="md:w-7/12">
-              {
-                shoppingCartItems.map((item, index) => (
-                  <ShoppingCartProduct key={index} product={item} />
-                ))
-              }
-            </div>
-            <div className="md:w-5/12">
-              <OrderDetail />
+      { shoppingCartItems.length > 0 ? (
+        <section className="mb-20">
+          <div className="container">
+            <div className="md:flex gap-8">
+              <div className="md:w-7/12">
+                {
+                  shoppingCartItems.map((item, index) => (
+                    <ShoppingCartProduct key={index} product={item} />
+                  ))
+                }
+              </div>
+              <div className="md:w-5/12">
+                <OrderDetail />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+        ) : (
+          <section className="mb-20">
+            <div className="container">
+              <div className="text-center">
+                <h1 className="font-semibold text-3xl py-20">Sepetinizde ürün bulunmamaktadır.</h1>
+              </div>
+            </div>
+          </section>
+        )
+      }
 
       <ProductSlider products={products} />
 
