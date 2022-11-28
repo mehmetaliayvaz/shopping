@@ -7,25 +7,25 @@ function HeaderSearch() {
   const [search, setSearch] = useState("");
   const [products, setProducts] = useState([]);
   const [delayTimer, setDelayTimer] = useState(null);
-  const [searchLoading, setSearchLoading] = useState(false);
+  // const [searchLoading, setSearchLoading] = useState(false);
 
   useEffect(() => {
     const searchText = search.toLowerCase().replaceAll(" ", "");
       if(delayTimer){
         clearTimeout(delayTimer);
       }
-      setSearchLoading(0)
+      // setSearchLoading(0)
       setDelayTimer(setTimeout(() => {
         
         if(searchText !== ""){
           axios.get(`https://shopping-api-ten.vercel.app/products/search/${searchText}`)
           .then((res) => {
             setProducts(res.data);
-            setSearchLoading(1)
+            // setSearchLoading(1)
           });
         }
         else{
-          setSearchLoading(1);
+          // setSearchLoading(1);
           setProducts([]);
         }
 

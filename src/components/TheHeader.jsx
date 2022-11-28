@@ -21,7 +21,7 @@ function Header() {
               <li>
                 <a href="/" className="flex items-center">
                   <UserIcon size="16" color="black" className="mr-1" />
-                  <span>Hesabım</span>
+                  <span>Siparişlerim</span>
                 </a>
               </li>
               <li>
