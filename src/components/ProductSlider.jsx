@@ -4,9 +4,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import ProductCard from './ProductCard';
 
-function ProductSlider() {
-
-  const productSlider = Array.from({ length: 16 })
+function ProductSlider({products}) {
 
   return (
     <section>
@@ -15,15 +13,17 @@ function ProductSlider() {
           className="intro-slider"
           modules={[Navigation]}
           spaceBetween={20}
-          slidesPerView={4}
+          slidesPerView={5}
           navigation
         >
           {
-            productSlider.map((el, index) => (
-              <SwiperSlide>
-                <ProductCard />
-              </SwiperSlide>
-            ))
+            products.map((productItem, productIndex) => {
+              return (
+                <SwiperSlide key={productIndex}>
+                  <ProductCard product={productItem} />
+                </SwiperSlide>
+              )
+            })
           }
         </Swiper>
       </div>

@@ -1,8 +1,10 @@
-import React from 'react'
+// import ShoppingCartProduct from '../components/ShoppingCartProduct';
 
 function OrdersPage() {
   return (
-    <div>OrdersPage</div>
+    <div className="page-wrapper">
+      {/* <ShoppingCartProduct /> */}
+    </div>
   )
 }
 

@@ -1,19 +1,10 @@
 import SidebarCategories from "../components/SidebarCategories";
 import IntroSlider from "../components/IntroSlider";
 import ProductCard from "../components/ProductCard";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useSelector } from "react-redux";
 
 function HomePage() {
-
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    axios.get("https://shopping-api-ten.vercel.app/products")
-      .then((res) => {
-        setProducts(res.data);
-      });
-  }, []);
+  const products = useSelector(state => state.products.value);
 
   return (
     <div className="page-wrapper">

@@ -1,15 +1,16 @@
-// import ProductSlider from "../components/ProductSlider";
+import ProductSlider from "../components/ProductSlider";
 import ProductCount from "../components/ProductCount";
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 function ProductDetailPage() {
 
   const [product, setProduct] = useState({});
   const [activeImg, setActiveImg] = useState();
-
   const params = useParams();
+  const products = useSelector(state => state.products.value);
 
   useEffect(() => {
     axios.get(`https://shopping-api-ten.vercel.app/products/${params.id}`)
@@ -62,7 +63,7 @@ function ProductDetailPage() {
         </div>
       </section>
 
-      {/* <ProductSlider /> */}
+      <ProductSlider products={ products } />
 
     </div>
   )

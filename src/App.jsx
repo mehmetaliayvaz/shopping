@@ -5,8 +5,21 @@ import ProductDetailPage from "./pages/ProductDetailPage";
 import CategoryPage from "./pages/CategoryPage";
 import OrdersPage from "./pages/OrdersPage";
 import { Routes, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { setProducts } from "./store/products";
+import axios from "axios";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    axios.get("https://shopping-api-ten.vercel.app/products")
+      .then((res) => {
+        dispatch(setProducts(res.data));
+      });
+  }, [dispatch]);
+
+
   return (
     <div className="bg-gray-50">
       <TheHeader />

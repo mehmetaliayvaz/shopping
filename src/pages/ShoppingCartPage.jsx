@@ -1,10 +1,11 @@
 import ShoppingCartProduct from "../components/ShoppingCartProduct";
 import OrderDetail from "../components/OrderDetail";
-// import ProductSlider from "../components/ProductSlider";
+import ProductSlider from "../components/ProductSlider";
 import { useSelector } from "react-redux";
 
 function ShoppingCartPage() {
   const shoppingCartItems = useSelector(state => state.shoppingCart.value);
+  const products = useSelector(state => state.products.value);
 
   return (
     <div className="page-wrapper">
@@ -26,7 +27,7 @@ function ShoppingCartPage() {
         </div>
       </section>
 
-      {/* <ProductSlider /> */}
+      <ProductSlider products={products} />
 
     </div>
   )
