@@ -4,6 +4,14 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 function IntroSlider(props) {
+  const slider = [
+    'home-banner-1.png',
+    'home-banner-2.png',
+    'home-banner-3.png',
+    'home-banner-4.png',
+    'home-banner-5.png',
+  ]
+
   return (
     <Swiper
       className={'intro-slider ' + props.className}
@@ -12,21 +20,17 @@ function IntroSlider(props) {
       slidesPerView={1}
       navigation
     >
-      <SwiperSlide>
-        <div className='bg-home-slider w-full h-full'>
-          <img src="/img/home-slider.png" alt="" className='w-full h-[500px] object-cover' />
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className='bg-home-slider w-full h-full'>
-          <img src="/img/home-slider.png" alt="" className='w-full h-[500px] object-cover' />
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className='bg-home-slider w-full h-full'>
-          <img src="/img/home-slider.png" alt="" className='w-full h-[500px] object-cover' />
-        </div>
-      </SwiperSlide>
+      {
+        slider.map((sliderItem, sliderIndex) => {
+          return(
+            <SwiperSlide key={sliderIndex}>
+              <div className='bg-home-slider w-full h-full'>
+                <img src={'/img/slider/' + sliderItem} alt="" className='w-full h-[500px] object-cover' />
+              </div>
+            </SwiperSlide>
+          )
+        })
+      }
     </Swiper>
   )
 }
