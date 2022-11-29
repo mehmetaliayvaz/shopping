@@ -11,7 +11,7 @@ function HomePage() {
       <div className="container">
         <div className="flex flex-col-reverse md:flex-row gap-8">
           <div className="md:w-2/12">
-            <SidebarCategories className="sticky top-20" />
+            <SidebarCategories className="sticky top-8" />
           </div>
           <div className="md:w-10/12">
             <IntroSlider className="mb-20" />
