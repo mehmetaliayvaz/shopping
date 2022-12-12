@@ -15,11 +15,11 @@ function ShoppingCartPage() {
       { shoppingCartItems.length > 0 ? (
         <section className="mb-20">
           <div className="container">
-            <div className="md:flex gap-8">
+            <div className="gap-8 md:flex">
               <div className="md:w-7/12">
                 {
                   shoppingCartItems.map((item, index) => (
-                    <ShoppingCartProduct key={index} product={item} />
+                    <ShoppingCartProduct key={index} product={item} isShoppingCart={true} />
                   ))
                 }
               </div>
@@ -35,9 +35,9 @@ function ShoppingCartPage() {
               <div className="text-center">
                 {
                   isOrder ? (
-                    <h1 className="text-3xl bg-green-200 py-20">Siparişiniz başarıyla verilmiştir.</h1>
+                    <h1 className="py-20 text-3xl bg-green-200">Siparişiniz başarıyla verilmiştir.</h1>
                   ) : (
-                    <h1 className="font-semibold text-3xl py-20">Sepetinizde ürün bulunmamaktadır.</h1>
+                    <h1 className="py-20 text-3xl font-semibold">Sepetinizde ürün bulunmamaktadır.</h1>
                   )
                 }
               </div>
