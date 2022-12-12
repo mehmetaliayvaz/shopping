@@ -10,12 +10,12 @@ function OrdersPage() {
           orders.length > 0 ? (
           <div>
             {
-              orders.map((orderItem, orderIndex) => {
+              orders.map((item, idx) => orders[orders.length-1-idx]).map((orderItem, orderIndex) => {
                 return(
                   <div key={orderIndex} className="my-20">
                     <h2 className="mb-5 text-xl font-semibold text-primary">
                       Sipariş ID: 
-                      <span className=""> { orderIndex + 1 }</span>
+                      <span className=""> { orders.length - orderIndex }</span>
                     </h2>
                     {
                       orderItem.map((productItem, productIndex) => {
