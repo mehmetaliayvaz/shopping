@@ -1,25 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import "./anim-dots-icon.css";
 
-*{
+* {
   @apply font-poppins;
 }
 
-input, textarea {
+input,
+textarea {
   @apply focus-visible:outline-none;
 }
 
-.page-wrapper{
+.page-wrapper {
   @apply py-[50px];
 }
 
-.intro-slider .swiper-button-next, .intro-slider .swiper-button-prev{
-  @apply bg-white rounded-full h-11 w-11 shadow-xl mx-5;
+.intro-slider .swiper-button-next,
+.intro-slider .swiper-button-prev {
+  @apply mx-5 bg-white rounded-full shadow-xl h-11 w-11;
 }
 
-.intro-slider .swiper-button-next:after, .intro-slider .swiper-button-prev:after{
-  @apply text-black text-lg font-bold;
+.intro-slider .swiper-button-next:after,
+.intro-slider .swiper-button-prev:after {
+  @apply text-lg font-bold text-black;
 }
 
-.btn-primary{
-  @apply bg-primary rounded-lg px-4 py-2 text-white text-sm font-semibold hover:bg-primary-700 transition-colors;
+.btn-primary {
+  @apply px-4 py-2 text-sm font-semibold text-white transition-colors rounded-lg bg-primary hover:bg-primary-700;
 }
