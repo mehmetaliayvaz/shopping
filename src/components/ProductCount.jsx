@@ -1,26 +1,21 @@
-import { useDispatch } from "react-redux";
-import { increaseQuantity, decreaseQuantity } from "../store/shoppingCart";
-
-function ProductCount({ quantity, productId }) {
-  const dispatch = useDispatch();
-
+function ProductCount({ quantity, setQuantity }) {
   return (
-    <div className="text-sm inline-flex shadow-md">
-      <button 
-        className="bg-gray-300 w-6 h-6 flex justify-center items-center"
-        onClick={ () =>  dispatch(decreaseQuantity(productId)) }
+    <div className="inline-flex text-sm shadow-md">
+      <button
+        className="flex items-center justify-center w-6 h-6 bg-gray-300"
+        onClick={() => setQuantity(quantity - 1)}
       >
         -
       </button>
-      <div className="w-10 flex items-center justify-center">{ quantity }</div>
-      <button 
-        className="bg-gray-300 w-6 h-6 flex justify-center items-center"
-        onClick={ () =>  dispatch(increaseQuantity(productId)) }
+      <div className="flex items-center justify-center w-10">{quantity}</div>
+      <button
+        className="flex items-center justify-center w-6 h-6 bg-gray-300"
+        onClick={() => setQuantity(quantity + 1)}
       >
         +
       </button>
     </div>
-  )
+  );
 }
 
-export default ProductCount
+export default ProductCount;
