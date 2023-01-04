@@ -2,7 +2,11 @@ function ProductCount({ quantity, setQuantity }) {
   return (
     <div className="inline-flex text-sm shadow-md">
       <button
-        className="flex items-center justify-center w-6 h-6 bg-gray-300"
+        className={
+          "flex items-center justify-center w-6 h-6 bg-gray-300" +
+          (quantity === 1 ? " opacity-50 cursor-not-allowed" : "")
+        }
+        disabled={quantity === 1}
         onClick={() => setQuantity(quantity - 1)}
       >
         -
