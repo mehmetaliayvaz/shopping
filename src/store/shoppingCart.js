@@ -10,18 +10,18 @@ export const shoppingCartSlice = createSlice({
       state.value = action.payload;
     },
     addToCart: (state, action) => {
-      if (state.value.find((item) => item.id === action.payload.id)) {
+      if (state.value.find((item) => item.id === action.payload.product.id)) {
         state.value = state.value.map((item) => {
-          if (item.id === action.payload.id) {
-            return {
-              ...item,
-              quantity: item.quantity + 1,
-            };
+          if (item.id === action.payload.product.id) {
+            item.quantity = item.quantity + action.payload.quantity;
           }
           return item;
         });
       } else {
-        state.value.push({ ...action.payload, quantity: 1 });
+        state.value.push({
+          ...action.payload.product,
+          quantity: action.payload.quantity,
+        });
       }
       localStorage.setItem("shoppingCart", JSON.stringify(state.value));
     },
