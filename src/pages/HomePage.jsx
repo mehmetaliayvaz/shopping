@@ -1,5 +1,5 @@
 import SidebarCategories from "../components/SidebarCategories";
-import IntroSlider from "../components/IntroSlider";
+// import IntroSlider from "../components/IntroSlider";
 import ProductCard from "../components/ProductCard";
 import { useSelector } from "react-redux";
 
@@ -14,7 +14,7 @@ function HomePage() {
             <SidebarCategories className="sticky top-8" />
           </div>
           <div className="md:w-10/12">
-            <IntroSlider className="mb-20" />
+            {/* <IntroSlider className="mb-20" /> */}
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
               {
                 products.map((productItem, productIndex) => {
